@@ -1,0 +1,19 @@
+{
+  "accepts": ["id"]  ,
+  "classes":
+    ["Gene"]
+  ,
+  "columnMapping": {
+    "Gene": {
+      "id": "primaryIdentifier"
+    }
+  },
+  "files" : {
+    "css" : "dist/style.css",
+    "js" : "dist/bundle.js"
+  },
+  "toolName" : {
+    "human" :"GO Terms viewer",
+    "cljs" :"bluegenesToolGOTerms"
+  }
+}

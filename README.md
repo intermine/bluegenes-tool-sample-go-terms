@@ -34,3 +34,4 @@ Note that you'll still have to serve and refresh the page yourself - we don't pr
 ```
 npm run dev
 ```
+# bluegenes-tool-sample-go-terms

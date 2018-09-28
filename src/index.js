@@ -26,7 +26,36 @@ export function main (el, service, imEntity, state, config) {
     var goTerms = new imjs.Service(service)
         .records(query)
         .then(function(response) {
-          //we'll add more code here, but in the meantime, print the result to the console.
-          console.log(response);
+
+          var terms = resultsToNamespaceBuckets(response);
+
+          var termUI = "";
+
+          var namespaces = Object.keys(terms);
+
+          namespaces.map(function (namespace){
+            terms[namespace].map(function (result) {
+              console.log("%cresult","border-bottom:chartreuse solid 3px;",result);
+            });
+          });
+
     });
+}
+
+function resultsToNamespaceBuckets(response) {
+  //we're going to sort our terms by namespace.
+  //here's a var to store each type of term in...
+  var terms = {
+    molecular_function : [],
+    cellular_component : [],
+    biological_process : []
+  };
+  //iterate through the results and group them by namespace
+  response[0].goAnnotation.map(function(result){
+    //we don't need to store anything except the details in ontologyterm
+    var term = result.ontologyTerm;
+    //push each term into the correct box
+    terms[term.namespace].push(term);
+  });
+  return terms;
 }

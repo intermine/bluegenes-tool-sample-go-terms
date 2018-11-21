@@ -42,10 +42,10 @@ code(s).
 **/
 function buildVisualOutput(terms) {
   var namespaces = Object.keys(terms),
-    termUI = "<div>";
+    termUI = "<div class='namespaces'>";
   //loop through the namespaces and create a header for each namespace
   namespaces.map(function(namespace) {
-    termUI = termUI + "<div><h3>" + namespace + "</h3> <ul>";
+    termUI = termUI + "<div class='namespace'><h3>" + namespace + "</h3> <ul>";
     //loop through the terms in each namespace
     terms[namespace].map(function(result) {
       //create a new list entry for each GO term.
